@@ -1,0 +1,369 @@
+<style>
+  h3{
+    padding-left:10px;
+  }
+
+  .homepage{
+    width:100%;
+    height:100%;
+  }
+
+  .ListsContainer{
+    display:inline-block;
+    height:100%;
+    width:20%;
+    overflow:auto;
+    background:#ccc;
+  }
+
+  .ListItemsContainer{
+    display:inline-block;
+    height:100%;
+    width:80%;
+    overflow:auto;
+    -webkit-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 2px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 2px 10px 2px rgba(0,0,0,0.75);
+  }
+
+  .ListItemsContainer{
+    display:inline-block;
+    background:#fcfcfc;
+  }
+
+  .ListItemsContainer, .ListsContainer {
+    float: left;
+  }
+
+  .homepage:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  .listRow{
+    border-bottom:1px solid grey;
+    width:100%;
+  }
+
+  .listRow > div {
+    display:inline-block;
+    line-height: 50px;
+  }
+
+  .listTitle{
+    padding-left:2%;
+    font-size:25px;
+    width:88%;
+    font-weight:bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family:helvetica;
+  }
+
+  .deleteListButton{
+    width:10%;
+    float:right;
+    cursor:pointer;
+  }
+
+  .deleteListButton > img{
+    vertical-align: middle;
+    margin:auto;
+    width:20px;
+    height: 20px;
+  }
+
+  .additionButton{
+    cursor:pointer;
+    width:100%;
+    line-height:60px;
+    text-align:center;
+  }
+
+  .additionButton > img{
+    vertical-align: middle;
+    margin:auto;
+    width:35px;
+    height: 35px;
+  }
+
+  .addListSection{
+    width:100%;
+    padding-top:20px;
+  }
+
+  .list_title_edit{
+    line-height:35px;
+    width:90%;
+    margin:auto;
+    display:block;
+    font-size:30px;
+    text-align:center;
+  }
+
+  .additionListButtons{
+    width:100%;
+    text-align:center;
+  }
+
+  .additionListButtons > button{
+    display:inline-block;
+    width:40%;
+  }
+
+  .itemTable{
+    width:100%;
+    border-spacing: 0px;
+  }
+
+  .itemTable tbody{
+    width:100%;
+    display:table;
+    border-collapse: collapse;
+  }
+
+  .itemRow{
+    height: 65px;
+    width:100%;
+    border-bottom:1px solid grey;
+  }
+
+  .itemCheck{
+    width:3%;
+    padding-left:10px;
+  }
+
+  .itemDescription{
+    width:90%;
+  }
+
+  .itemFav{
+    width:3%;
+  }
+
+  .deleteItemButton{
+    width:3%;
+    cursor:pointer;
+  }
+
+  .deleteItemButton > img{
+    vertical-align: middle;
+    margin:auto;
+    width:20px;
+    height: 20px;
+  }
+
+  .iconCheck {
+    opacity: 0;
+    display:none;
+    float: left;
+    width: 18px;
+    }
+
+    .iconCheck + label {
+        margin: 0;
+        clear: none;
+        padding: 5px 0 4px 30px;
+        cursor: pointer;
+    }
+
+    .checkCheck + label{
+      background: url("/app/Images/check_off.png") left center no-repeat;
+      background-size: 26px 26px;
+    }
+
+    .checkCheck:checked + label {
+      background: url("/app/Images/check_on.png") left center no-repeat;
+      background-size: 26px 26px;
+    }
+
+    .checkFav + label{
+      background: url("/app/Images/fav_off.png") left center no-repeat;
+      background-size: 26px 26px;
+    }
+
+    .checkFav:checked + label {
+      background: url("/app/Images/fav_on.png") left center no-repeat;
+      background-size: 26px 26px;
+    }
+
+    .itemDescriptionContainer{
+      width:100%;
+    }
+
+    .itemTitle{
+      font-size:22px;
+      margin:0;
+    }
+
+    .itemDetails{
+      width:100%;
+    }
+
+    .itemDetails > div{
+      display:inline-block;
+      color: #888;
+    }
+
+    .itemParution{
+      width:50%;
+    }
+
+    .itemProducer{
+      width:20%;
+    }
+
+    .addItemSection{
+      width:100%;
+      padding-top:20px;
+    }
+
+    .item_title_edit{
+      line-height:35px;
+      width:90%;
+      max-width:500px;
+      margin:auto;
+      display:block;
+      font-size:30px;
+      text-align:center;
+    }
+
+    .additionItemButtons{
+      width:100%;
+      margin-top:20px;
+      text-align:center;
+    }
+
+    .additionItemButtons > button{
+      display:inline-block;
+      max-width:200px;
+      width:40%;
+    }
+
+    .manualCreateContainer{
+      width:100%;
+      margin-top:5px;
+      text-align:center;
+    }
+
+    .manualCreateContainer > button{
+      display:inline-block;
+      max-width:200px;
+      width:40%;
+    }
+
+    .searchResultsContainer{
+      width:90%;
+      max-width:500px;
+      margin:auto;
+      display:block;
+      border:1px solid grey;
+      border-top:0;
+    }
+
+    .searchResultsContainer p{
+      margin:0;
+      line-height:23px;
+      padding-left: 5px;
+      background:#ededed;
+      cursor:pointer;
+    }
+
+    .searchResultsContainer p:nth-child(2n+2){
+      background:#fafafa;
+    }
+
+    .searchResultsContainer p:hover{
+      background:#f2f2ff;
+    }
+
+</style>
+
+<div class="homepage">
+  <div class="ListsContainer">
+  <!--Show Lists-->
+    <div class="showListsSection">
+        <div *ngFor="let list of userLists">
+          <div *ngIf="!list.isDeleted" class="listRow">
+            <div (click)="setItems(list)" class="listTitle">{{list.title}}</div>
+            <div class="deleteListButton" (click)="deleteList(list)">
+              <img src="./app/Images/delete_icon.png" />
+            </div>
+          </div>
+        </div>
+        <div class="additionButton" *ngIf="!isAddingList && authServices.isAuthenticated()" (click)="addList()">
+          <img src="./app/Images/addition_icon.png" />
+        </div>
+    </div>
+
+    <!--List Form-->
+    <div class="addListSection">
+      <form *ngIf="isAddingList" (ngSubmit)="submitListForm()" [formGroup]="listForm">
+        <div class="form-content">
+            <input  [(ngModel)]="newList.title" type="text" formControlName="title" class="sd-form-control list_title_edit" placeholder="Titre"><br>
+            <div class="additionListButtons">
+              <button class="customButton" type="submit" [disabled]="!listForm.valid">Ajouter</button>
+              <button class="customButton" type="button" (click)="cancelAddList()">Cancel</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="ListItemsContainer">
+    <!--Show Items-->
+    <div *ngIf="selectedList" class="showItemsSection">
+      <table class="itemTable">
+        <div *ngFor="let item of listItems">
+          <tr *ngIf="!item.isDeleted" class="itemRow">
+            <td class="itemCheck"><input class="checkCheck iconCheck"  type="checkbox" name="itemChecked" value="itemChecked" [checked]="item.isChecked" />
+              <label (click)="checkItem(item)"></label>
+            </td>
+            <td class="itemDescription">
+              <div class="itemDescriptionContainer">
+                <p class="itemTitle">{{item.title}}</p>
+                <div class="itemDetails">
+                  <div class="itemParution">Date de Parution: {{item.releaseDate_Cinema |date:'dd MMMM yyyy'}} <span *ngIf="!item.releaseDate_Cinema">Inconnu</span></div>
+                  <div class="itemProducer" *ngIf="item.producer">Producteur: {{item.producer}}</div>
+                </div>
+              </div>
+            </td>
+            <td class="itemFav"><input class="checkFav iconCheck" type="checkbox" id="itemFavorite{{item.itemid}}" name="itemFavorite" value="itemFavorite" [checked]="item.isFavorite"  />
+              <label (click)="favItem(item)"></label>
+            </td>
+            <td class="deleteItemButton" (click)="deleteItem(item)">
+              <img src="./app/Images/delete_icon.png" />
+            </td>
+          </tr>
+        </div>
+      </table>
+      <div class="additionButton" *ngIf="!isAddingItem && selectedList" (click)="addItem()">
+        <img src="./app/Images/addition_icon.png" />
+      </div>
+    </div>
+
+    <!--Item Form-->
+    <div class="addItemSection">
+      <form *ngIf="isAddingItem" (ngSubmit)="searchItem(newItem.title)" [formGroup]="itemForm">
+        <div class="form-content">
+            <input  [(ngModel)]="newItem.title" type="text" formControlName="title" class="sd-form-control item_title_edit" placeholder="Titre">
+            <div class="searchResult" *ngIf="isSearchingItem">
+              <div class="searchResultsContainer">
+                <p *ngFor="let result of searchMovies" (click)="submitItem(result)">{{result.Title}}</p>
+              </div>
+            </div>
+            <div class="additionItemButtons">
+              <button class="customButton" type="button" [disabled]="!itemForm.valid" (click)="searchItem(newItem.title)">Recherche</button>
+              <button class="customButton" type="button" (click)="cancelAddItem()">Cancel</button>
+            </div>
+            <div *ngIf="isSearchingItem" class="manualCreateContainer">
+              <button class="customButton" type="button" (click)="submitItemForm()">Créer Manuellement</button>
+            </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

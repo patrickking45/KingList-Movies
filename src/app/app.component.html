@@ -1,0 +1,65 @@
+<style>
+
+  nav{
+    background:#444;
+    color:#eee;
+  }
+
+  .welcomeMessage, .loginContainer{
+    float:right;
+    padding-right:10px;
+    line-height:50px;
+    vertical-align: middle;
+    font-size:25px;
+    font-weight: bold;
+  }
+
+  .loginContainer a, .welcomeMessage a{
+    color:#ccc;
+    text-decoration: underline;
+    cursor:pointer;
+  }
+
+  .loginContainer a:hover, .welcomeMessage a:hover{
+    color:#eeeeff;
+  }
+
+  .loginContainer input{
+    height:25px;
+    font-size:20px;
+  }
+
+</style>
+
+<nav>
+  <!--<img style="float:left;" src="app/Images/Logo/KingList-Logo.png" width="35" height="35" />-->
+  <div class="loginContainer" *ngIf="!auth.isAuthenticated() && !isRegistering()">
+    <input #loginInput type="text" placeholder="Login"/>
+    <input #passwdInput type="password" placeholder="Password" />
+    <a (click)="login(loginInput.value, passwdInput.value);">
+      Login
+    </a>
+    |
+    <a (click)="startRegistration();">
+      Register
+    </a>
+    <span *ngIf="errorMessageLogin != ''" style="color:#FF0000;"> | {{errorMessageLogin}}</span>
+  </div>
+  <div class="welcomeMessage" *ngIf="auth.isAuthenticated()">
+    Bienvenue, {{auth.getUser().login}} |
+    <a (click)="logout();">
+     Logout
+    </a>
+  </div>
+</nav>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+
+<!--
+<footer>
+  © 2017
+</footer>
+-->

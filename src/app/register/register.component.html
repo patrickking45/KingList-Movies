@@ -1,0 +1,36 @@
+<style>
+  .registerContainer{
+    display:block;
+    width:50%;
+    max-width:500px;
+    margin:35px auto;
+    padding: 25px 0;
+    border:5px solid #444;
+    background:#ddd;
+    text-align:center;
+  }
+
+  .registerContainer input{
+      width:80%;
+      margin-bottom:8px;
+      border:3px solid #444;
+      line-height:30px;
+      font-size:20px;
+  }
+
+  h3{
+    margin-top:0px;
+  }
+
+</style>
+
+<div class="registerContainer">
+  <h3>Enregistrement</h3>
+  <input #loginRegisterInput type="text" placeholder="Login"/><br/>
+  <input #passwdRegisterInput type="password" placeholder="Mot de Passe" /><br/>
+  <input #passwd2RegisterInput type="password" placeholder="Répéter Mot de Passe" /><br/>
+  <button (click)="register(loginRegisterInput.value, passwdRegisterInput.value, passwd2RegisterInput.value);">
+    S'enregistrer
+  </button>
+  <span *ngIf="errorMessageregister != ''" style="color:#FF0000;"> {{errorMessageLogin}}</span>
+</div>
